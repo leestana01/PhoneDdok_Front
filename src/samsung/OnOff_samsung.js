@@ -132,20 +132,21 @@ function App() {
         return (
           <div id="pages" className="page3">
             <p style={{ fontSize: "16px" }}>
-              먼저, 전원 버튼과 음량 내리기 버튼을 동시에 눌러주세요!
+              먼저, 상단 바를 두 번 아래로 내려주세요!
             </p>
-            <p>그럼 화면처럼 상단 밀어서 전원 끄기가 보입니다.</p>
+            <p>상단에 전원 버튼을 눌러주세요.</p>
             <img
               className="exImg"
               id="offImg"
               src="img/offBtn.jpg"
-              alt="offBtn"
+              alt="offBtn" //사진바꾸기!!!!!!!!!
             />
             <p>
+              맨위의
               <b style={{ fontSize: "17px", color: "#1f4ef5" }}>
-                동그라미를 우측으로
+                전원 끄기 버튼
               </b>
-              밀어주면 전원 끄기 완료!
+              을 밀어주면 전원 끄기 완료!
             </p>
             <p style={{ fontSize: "smaller" }}>
               전원을 켤 때는 우측의 전원 버튼을 꾹 누르면 전원이 켜집니다.
