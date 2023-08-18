@@ -332,12 +332,12 @@
 .navi_bar {
   background-color: #f8f8fa;
   display: flex;
+  position: fixed;
   justify-content: space-around;
   text-align: center;
-  position: relative;
-  top: 470px;
   height: 70px;
   width: 370px;
+  bottom: 0px;
 }
 
 .menuBtn {

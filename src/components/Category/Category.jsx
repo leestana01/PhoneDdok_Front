@@ -9,32 +9,15 @@ import Rectangle248Image from "../../assets/images/Category_Rectangle_24.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-/*import IconCheckOneImage from "../../assets/images/Category_____icon__check_one_.png";
-
-import IconCheckOne1Image from "../../assets/images/Category_____icon__check_one1_.png";
-
-import IconCheckOne2Image from "../../assets/images/Category_____icon__check_one2_.png";*/
-
 import HomeIconImg from "../../assets/images/HomeIcon.png";
 
 import CategoryIconImg from "../../assets/images/CategoryIcon.png";
 
 import MypageIconImg from "../../assets/images/MypageIcon.png";
 
-/*import CorrectionGreyImage from "../../assets/images/Category_CorrectionGrey.png";*/
-
 import { styled } from "@mui/material/styles";
 
-/*import BackIcon from "../../assets/images/back_icon.png";
-
-import Search from "../../assets/images/search.png";*/
-
-/*import { useNavigate } from "react-router";
-
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import DownAppA from "../../iphone/downApp_iphone.js";*/
+import "../../App.css";
 
 const Category1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -1190,19 +1173,55 @@ function Category() {
             <Q22>{`초급기능`}</Q22>
           </Frame5>
         </Q21>
-        <BottomMenuBar>
-          <div></div>
-          <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
-          <CategoryIcon
-            src={CategoryIconImg}
-            loading="lazy"
-            alt={"CategoryBlack"}
-          />
-          <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
-          <div></div>
-        </BottomMenuBar>
+        <NavigationBar />
       </BackgroundColorGray>
     </Category1>
+  );
+}
+function NavigationBar() {
+  return (
+    <div className="navi_bar">
+      <div>
+        <button className="menuBtn" type="button">
+          <img
+            src="img/home.png"
+            alt="homeNoneSelect"
+            style={{ display: "none" }}
+          />
+          <img src="img/home1.png" alt="homeSelect" />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/menu.png" alt="menuNoneSelect" />
+          <img
+            src="img/menu1.png"
+            alt="menuSelect"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/check.png" alt="checkNoneSelct" />
+          <img
+            src="img/check1.png"
+            alt="checkSelct"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/user.png" alt="userNoneSelect" />
+          <img
+            src="img/user1.png"
+            alt="userSelect"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+    </div>
   );
 }
 }

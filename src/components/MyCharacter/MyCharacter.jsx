@@ -22,9 +22,7 @@ import Vector6Image from "../../assets/images/MyCharacter_Vector.png";
 
 import { styled } from "@mui/material/styles";
 
-/*import BackIcon from "../../assets/images/back_icon.png";
-
-import Search from "../../assets/images/search.png";*/
+import "../../App.css";
 
 const MyCharacter1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -531,8 +529,55 @@ function MyCharacter() {
 `}
         </Q5>
       </Explanation>
+      <NavigationBar />
     </MyCharacter1>
   );
+  function NavigationBar() {
+    return (
+      <div className="navi_bar">
+        <div>
+          <button className="menuBtn" type="button">
+            <img
+              src="img/home.png"
+              alt="homeNoneSelect"
+              style={{ display: "none" }}
+            />
+            <img src="img/home1.png" alt="homeSelect" />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/menu.png" alt="menuNoneSelect" />
+            <img
+              src="img/menu1.png"
+              alt="menuSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/check.png" alt="checkNoneSelct" />
+            <img
+              src="img/check1.png"
+              alt="checkSelct"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/user.png" alt="userNoneSelect" />
+            <img
+              src="img/user1.png"
+              alt="userSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MyCharacter;

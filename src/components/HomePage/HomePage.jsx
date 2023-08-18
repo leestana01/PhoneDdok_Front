@@ -11,6 +11,8 @@ import CategoryIconImg from "../../assets/images/CategoryIcon.png";
 
 import MypageIconImg from "../../assets/images/MypageIcon.png";
 
+import "../../App.css";
+
 const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -233,18 +235,54 @@ function HomePage() {
       
       
       
-      <BottomMenuBar>
-        <div></div>
-        <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
-        <CategoryIcon
-          src={CategoryIconImg}
-          loading="lazy"
-          alt={"CategoryBlack"}
-        />
-        <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
-        <div></div>
-      </BottomMenuBar>
+      <NavigationBar />
     </HomePage1>
+  );
+}
+function NavigationBar() {
+  return (
+    <div className="navi_bar">
+      <div>
+        <button className="menuBtn" type="button">
+          <img
+            src="img/home.png"
+            alt="homeNoneSelect"
+            style={{ display: "none" }}
+          />
+          <img src="img/home1.png" alt="homeSelect" />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/menu.png" alt="menuNoneSelect" />
+          <img
+            src="img/menu1.png"
+            alt="menuSelect"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/check.png" alt="checkNoneSelct" />
+          <img
+            src="img/check1.png"
+            alt="checkSelct"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+      <div>
+        <button className="menuBtn" type="button">
+          <img src="img/user.png" alt="userNoneSelect" />
+          <img
+            src="img/user1.png"
+            alt="userSelect"
+            style={{ display: "none" }}
+          />
+        </button>
+      </div>
+    </div>
   );
 }
 }
