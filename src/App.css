@@ -1,0 +1,905 @@
+/* 기존 CSS를 가정합니다 */
+
+/* Signup1 */
+
+.signup1_blue_font {
+    color: cornflowerblue;
+}
+.signup1_content {
+    color: gray;
+}
+.signup1_push_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-bottom: px;
+    border-radius: 5px;
+    margin-top: 200px;
+    text-align: center;
+    background-color: #007bff;
+}
+.signup1_content_whole {
+    margin-top: 210px;
+    height: 100%;
+}
+.signup1_push_form_container {
+    width: 25vw;
+}
+
+/* SignUp */
+.SignUp4 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignUp4 .head h2 {
+    text-align: left;
+    margin: 0;
+}
+
+.signup_texfield {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column; /* 아이템을 세로로 배치 */
+    align-items: center; /* 아이템을 수평 가운데로 정렬 */
+    justify-content: center; /* 아이템을 수직 가운데로 정렬 */
+    padding: 20px; /* 여백을 추가합니다 */
+    border-radius: 10px; /* 둥근 모서리를 추가합니다 */
+    width: 25vw; /* 뷰포트 가로 너비의 50%로 설정합니다 */
+}
+
+/* Target */
+.Target {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.button {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: left;
+}
+.target_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-top: 40px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+}
+
+.button.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.target_form_container {
+    width: 25vw;
+}
+
+/* Loading */
+.Loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    flex-direction: column;
+}
+.title_color {
+    color: cornflowerblue;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* PushAlert */
+.PushAlert {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.push_head_bell_image {
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+}
+.push_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-top: 130px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+}
+.bell_image {
+    margin-left: 10px;
+}
+.push_form_container {
+    width: 25vw;
+}
+
+/* 기종 선택 */
+.PhoneType {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    margin: 0 auto;
+}
+
+.phonetype_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-top: 60px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+}
+
+/* 회원가입 완료 */
+
+.SignupDone {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    margin: 0 auto;
+}
+.signupdone_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-top: 60px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+}
+
+/* signup2 */
+.SignUp2 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup2_container {
+    width: 25vw;
+}
+.signup2_background_img {
+    width: 25vw;
+    margin-top: 0;
+}
+
+/* signup3 */
+
+.SignUp3 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup3_container {
+    width: 25vw;
+}
+.signup3_background_img {
+    width: 20vw;
+    margin: 0 auto 30px auto;
+    display: flex;
+}
+
+.signup3_push_submit_btn {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    margin-top: 170px;
+
+    border-radius: 5px;
+    text-align: center;
+    background-color: #007bff;
+}
+
+
+/* ------------------------------ 이나원 ------------------------------- */
+.screen_shot_iphone {
+  background-color: white;
+  width: 25vw;
+  height: 640px;
+  position: relative;
+  top: 0%;
+  left: 15%;
+  overflow: scroll;
+}
+
+.back_btn {
+  background-color: #ffffff00;
+  border: 0;
+  outline: 0;
+  margin: 3%;
+}
+
+.voice_btn {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 50%;
+}
+.wrapper {
+  position: relative;
+  left: 3%;
+  padding-top: 1%;
+}
+#switch {
+  position: absolute;
+  /* hidden */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.switch_label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  top: 8px;
+  width: 40px;
+  height: 20px;
+  background: #d9d9d9;
+  border: 2px solid #d9d9d9;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.switch_label:hover {
+  background: #efefef;
+}
+.onf_btn {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  background: #fff;
+  transition: 0.2s;
+}
+/* checking style */
+#switch:checked + .switch_label {
+  background: #1f4ef5;
+  border: 2px solid #1f4ef5;
+}
+
+#switch:checked + .switch_label:hover {
+  background: #1f4ef5;
+}
+
+/* move */
+#switch:checked + .switch_label .onf_btn {
+  left: 24px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
+}
+
+#pages {
+  overflow: scroll;
+  text-align: center;
+}
+.navi_bar {
+  background-color: #f8f8fa;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  position: relative;
+  top: 470px;
+  height: 70px;
+  width: 370px;
+}
+
+.menuBtn {
+  background-color: #ffffff00;
+  border: 0;
+  position: relative;
+  top: 12px;
+}
+
+.page1 {
+  text-align: center;
+  font-size: 17px;
+}
+
+.startBtn {
+  background-color: #1f4ef5;
+  border: 2rem;
+  border-radius: 19rem;
+  border-color: #1f4ef5;
+  color: #fff;
+  height: 30px;
+  width: 80px;
+}
+
+.page2 {
+  text-align: center;
+  font-size: 17px;
+  position: relative;
+  top: -5%;
+}
+.exImg {
+  height: 220px;
+}
+
+.exImg2 {
+  height: 80px;
+  width: 200px;
+}
+
+#emojiImg {
+  text-align: center;
+  margin-left: 10%;
+  margin-top: -10%;
+}
+
+#offImg {
+  height: 120px;
+}
+
+#shareImg {
+  height: 150px;
+  width: 220px;
+}
+
+#heartImg {
+  height: 140px;
+}
+
+.page3 {
+  text-align: center;
+  font-size: 17px;
+  position: relative;
+  top: -5%;
+}
+
+.quiz_page {
+  position: relative;
+  top: -10%;
+  left: 5%;
+}
+
+.nextBtn {
+  background-color: #ffffff00;
+  border: 0;
+  transform: scale(0.5);
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  top: -25px;
+  left: 90px;
+}
+
+#nextBtn_1 {
+  left: 200px;
+}
+
+.line {
+  height: 90px;
+  width: 1px;
+  border-width: 0;
+  color: #1f4ef5;
+  background-color: #1f4ef5;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  margin: 0px;
+}
+
+.quizBtn {
+  width: 141px;
+  height: 100px;
+  border: 0.1rem;
+  border-radius: 1.5rem;
+  background-color: white;
+}
+
+#lastNext {
+  position: relative;
+  top: 90%;
+  left: 60%;
+  transform: scale(0.7);
+  margin-top: 10%;
+  font-size: 13px;
+}
+
+.level_up_page {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+.endBtn {
+  background-color: #1f4ef5;
+  border: 2rem;
+  border-radius: 19rem;
+  border-color: #1f4ef5;
+  color: #fff;
+  height: 35px;
+  width: 100px;
+}
+
+.exBtn {
+  background-color: #1f4ef5;
+  border: 2rem;
+  border-radius: 19rem;
+  border-color: #1f4ef5;
+  color: #fff;
+  height: 30px;
+  width: 105px;
+}
+
+.smileImg {
+  width: 89px;
+  height: 89px;
+}
+
+/*검색*/
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-container2 {
+  display: flex;
+  align-items: baseline;
+}
+.search-container3 {
+  display: flex;
+  align-items: baseline;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px;
+  background-color: gainsboro;
+  border-radius: 20px;
+  margin-left: 10%;
+  height: 10px;
+}
+.search-input2 {
+  position: relative;
+  left: 10px;
+  border: 1px;
+  background-color: gainsboro;
+  font-size: 10px;
+  border-radius: 10px;
+  height: 20px;
+  width: 280px;
+}
+.search-input3 {
+  border: 1px;
+  background-color: white;
+  font-size: 17px;
+  height: 30px;
+  width: 280px;
+}
+
+.search-button {
+  margin-left: 5%;
+  padding: 5px;
+  font-size: 17px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
+}
+.page4 {
+  text-align: center;
+}
+
+.page5 {
+  text-align: center;
+  position: relative;
+  top: -80px;
+}
+
+.practicePage2 {
+  position: relative;
+  top: -10%;
+}
+
+.search {
+  position: relative;
+  left: 10%;
+}
+
+.phoneddok {
+  background-color: rgba(255, 255, 255, 0.925);
+  margin: 3%;
+  width: 280px;
+  height: 200px;
+  border-radius: 1rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 1rem;
+  position: relative;
+  top: 5px;
+}
+
+.downBtn {
+  position: relative;
+  top: 20px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  border-radius: 1rem;
+  border-color: #d9d9d9;
+  color: #007bff;
+}
+
+.storeImg {
+  width: 250px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  left: 20px;
+}
+
+.wellDone {
+  position: relative;
+  top: 60px;
+  font-size: 30px;
+}
+#wellDone2 {
+  text-align: center;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.categoryBtn {
+  width: 160px;
+  height: 40px;
+  margin: 10px;
+  position: relative;
+  left: 90px;
+  border-radius: 1rem;
+  border: none;
+  background-color: #1f4ef5;
+  color: white;
+}
+.voiceTalk1 {
+  text-align: center;
+}
+
+.voiceTalk2 {
+  text-align: center;
+  position: relative;
+  top: -40px;
+}
+
+.kakaoHeart {
+  text-align: center;
+  position: relative;
+  top: -50px;
+}
+
+.numberAddBtn {
+  background-color: #ffffff00;
+  color: #007bff;
+  border: none;
+  position: relative;
+  left: 270px;
+  font-size: 30px;
+}
+.addNewNumber {
+  position: relative;
+  left: 30px;
+  height: 400px;
+}
+
+.fisrtLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.completeBtn {
+  background-color: #ffffff00;
+  color: lightgray;
+  border: none;
+  font-size: 20px;
+}
+
+.profile {
+  width: 90px;
+  height: 90px;
+  border-radius: 2rem;
+  border: none;
+}
+
+.numberInfo {
+  background-color: white;
+}
+
+.practicePage3 {
+  position: relative;
+  top: -80px;
+}
+
+.wifi_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 270px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.form-switch {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.form-switch i {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 46px;
+  height: 26px;
+  background-color: #e6e6e6;
+  border-radius: 23px;
+  vertical-align: text-bottom;
+  transition: all 0.3s linear;
+}
+.form-switch i::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 42px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 11px;
+  transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+  transition: all 0.25s linear;
+}
+.form-switch i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 11px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+  transform: translate3d(2px, 2px, 0);
+  transition: all 0.2s ease-in-out;
+}
+.form-switch:active i::after {
+  width: 28px;
+  transform: translate3d(2px, 2px, 0);
+}
+.form-switch:active input:checked + i::after {
+  transform: translate3d(16px, 2px, 0);
+}
+.form-switch input {
+  display: none;
+}
+.form-switch input:checked + i {
+  background-color: #4bd763;
+}
+.form-switch input:checked + i::before {
+  transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
+}
+.form-switch input:checked + i::after {
+  transform: translate3d(22px, 2px, 0);
+}
+
+.network {
+  text-align: left;
+  margin: 15px;
+}
+.wifiList {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 250px;
+  border-radius: 0.5rem;
+  padding: 5px;
+}
+
+.wifiName {
+  width: 250px;
+  background-color: white;
+  border-radius: 1rem;
+  border: none;
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+}
+
+#wifiLine {
+  color: lightgray;
+}
+
+.wifiPassword {
+  text-align: left;
+}
+.completeBtn1 {
+  position: relative;
+  top: 10px;
+  left: 250px;
+  font-size: 17px;
+}
+.completeBtn2 {
+  position: relative;
+  top: 10px;
+  left: 250px;
+  font-size: 17px;
+  background-color: #ffffff00;
+  border: none;
+  color: lightgrey;
+}
+.inputpassword {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 1rem;
+  width: 280px;
+  height: 50px;
+}
+
+.search-input4 {
+  position: relative;
+  top: 10px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.completeBtn {
+  color: #efefef; /* 초기 글자색 */
+}
+
+.completeBtn.active {
+  color: #007bff; /* 연결 버튼 활성 상태에서의 글자색 */
+}
+
+.clicked {
+  background-color: #1f4ef5;
+  color: white;
+}
+
+.practicePage1 {
+  text-align: center;
+}
+.profile {
+  position: relative;
+  left: 100px;
+}
+.sendImg1 {
+  text-align: center;
+}
+.sendImg2 {
+  text-align: center;
+}
+.sendImg3 {
+  text-align: center;
+}
+.sendImg4 {
+  text-align: center;
+}
+.sendImg5 {
+  text-align: center;
+}
+
+
+/* ---------------------------------- 김재우 ------------------------------*/
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
