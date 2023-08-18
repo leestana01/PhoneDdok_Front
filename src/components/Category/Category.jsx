@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+
+import axios from "axios";
+
+import { Link } from "react-router-dom";
 
 import Rectangle248Image from "../../assets/images/Category_Rectangle_24.png";
+
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /*import IconCheckOneImage from "../../assets/images/Category_____icon__check_one_.png";
 
@@ -24,23 +31,10 @@ import Search from "../../assets/images/search.png";*/
 
 /*import { useNavigate } from "react-router";
 
-//Category.jsx
-const handleClick = (e) => {
-  const navigate = useNavigate();
-  navigate("/edit", { state: e.target.value });
-};
-
-// edit.jsx
-import { useLocation } from "react-router";
-
-const Edit = () => {
-  const { state } = useLocation();
-  console.log(state);
-};*/
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import DownAppA from "../../iphone/downApp_iphone.js";
+import DownAppA from "../../iphone/downApp_iphone.js";*/
 
 const Category1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -91,768 +85,795 @@ const BackgroundColorGray = styled("div")({
   top: `56px`,
 });*/
 
-const Q = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `128px`,
-  left: `41px`,
-  top: `1253px`,
-});
+const Category = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [phoneType, setPhoneType] = useState(null);
 
-const ShortCut = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `71px`,
-});
+  const handed_identity = location.state.identity;
 
-const Rectangle24 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  axios
+    .get(`http://server.phoneddok.kro.kr/members?identity=${handed_identity}`)
+    .then((response) => {
+      // 서버에서 받아온 회원 정보
+      const memberData = response.data;
+      // 회원 정보에서 phone 값을 꺼내와서 상태에 설정
+      setPhoneType(memberData.phone);
+    })
+    .catch((error) => {
+      console.error("데이터 가져오기 실패:", error);
+    });
 
-const Q1 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+  const onClick_btn = () => {
+    navigate("/HomePage", {
+      state: {
+        identity: handed_identity,
+      },
+    });
+  };
 
-const SamSungPay = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Q = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `128px`,
+    left: `41px`,
+    top: `1253px`,
+  });
 
-const Rectangle241 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const ShortCut = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `71px`,
+  });
 
-const Q2 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+  const Rectangle24 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Q3 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `412px`,
-  left: `41px`,
-  top: `770px`,
-});
+  const Q1 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Inter`,
+    fontWeight: `400`,
+    fontSize: `14px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `25px`,
+    top: `20px`,
+  });
 
-const Wifi = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `355px`,
-});
+  const SamSungPay = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Rectangle242 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Rectangle241 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Q4 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Q2 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Inter`,
+    fontWeight: `400`,
+    fontSize: `14px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `25px`,
+    top: `20px`,
+  });
 
-const Wallpaper = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `284px`,
-});
+  const Q3 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `412px`,
+    left: `41px`,
+    top: `770px`,
+  });
 
-const Rectangle243 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Wifi = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `355px`,
+  });
 
-const Q5 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+  const Rectangle242 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const KakaoTalk = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `213px`,
-});
+  const Q4 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle244 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Wallpaper = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `284px`,
+  });
 
-const Q6 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+  const Rectangle243 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const PhoneBook = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `142px`,
-});
+  const Q5 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Inter`,
+    fontWeight: `400`,
+    fontSize: `14px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `25px`,
+    top: `20px`,
+  });
 
-const Rectangle245 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const KakaoTalk = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `213px`,
+  });
 
-const Q7 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle244 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const MemoApp = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `71px`,
-});
+  const Q6 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Inter`,
+    fontWeight: `400`,
+    fontSize: `14px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `25px`,
+    top: `20px`,
+  });
 
-const Rectangle246 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const PhoneBook = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `142px`,
+  });
 
-const Q8 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle245 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const AppInstallDelete = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Q7 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle247 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const MemoApp = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `71px`,
+  });
 
-const Q9 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle246 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Q10 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `554px`,
-  left: `41px`,
-  top: `145px`,
-});
+  const Q8 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const SoundVibration = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `0px`,
-});
+  const AppInstallDelete = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Rectangle248 = styled("img")({
-  height: `57px`,
-  width: `307px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Rectangle247 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Q11 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Q9 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const TimerAlarm = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `71px`,
-});
+  const Q10 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `554px`,
+    left: `41px`,
+    top: `145px`,
+  });
 
-const Rectangle249 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const SoundVibration = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Q12 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle248 = styled("img")({
+    height: `57px`,
+    width: `307px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Brightness = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `142px`,
-});
+  const Q11 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle2410 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const TimerAlarm = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `71px`,
+  });
 
-const Q13 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+  const Rectangle249 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Keyboard = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `213px`,
-});
+  const Q12 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle2411 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Brightness = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `142px`,
+  });
 
-const Q14 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle2410 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const Capture = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `284px`,
-});
+  const Q13 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Inter`,
+    fontWeight: `400`,
+    fontSize: `14px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `25px`,
+    top: `20px`,
+  });
 
-const Rectangle2412 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Keyboard = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `213px`,
+  });
 
-const Q15 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle2411 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const PhoneOnOff = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `355px`,
-});
+  const Q14 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle2413 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const Capture = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `284px`,
+  });
 
-const Q16 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle2412 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const VideoCall = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `426px`,
-});
+  const Q15 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle2414 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const PhoneOnOff = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `355px`,
+  });
 
-const Q17 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 28px;
-  top: 20px;
-`;
+  const Rectangle2413 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-const SpeakerPhone = styled("div")({
-  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `307px`,
-  height: `57px`,
-  left: `0px`,
-  top: `497px`,
-});
+  const Q16 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
 
-const Rectangle2415 = styled("div")({
-  backgroundColor: `rgba(255, 255, 255, 1)`,
-  border: `1px solid rgba(0, 0, 0, 1)`,
-  boxSizing: `border-box`,
-  borderRadius: `13px`,
-  width: `307px`,
-  height: `57px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-});
+  const VideoCall = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `426px`,
+  });
 
-const Q18 = styled(Link)`
-  text-align: left;
-  white-space: pre-wrap;
-  font-synthesis: none;
-  color: rgba(0, 0, 0, 1);
-  font-style: normal;
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0px;
-  text-decoration: none;
-  text-transform: none;
-  position: absolute;
-  left: 25px;
-  top: 20px;
-`;
+  const Rectangle2414 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
 
-/*const RedCheckGroup = styled("div")({
+  const Q17 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 28px;
+    top: 20px;
+  `;
+
+  const SpeakerPhone = styled("div")({
+    boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `307px`,
+    height: `57px`,
+    left: `0px`,
+    top: `497px`,
+  });
+
+  const Rectangle2415 = styled("div")({
+    backgroundColor: `rgba(255, 255, 255, 1)`,
+    border: `1px solid rgba(0, 0, 0, 1)`,
+    boxSizing: `border-box`,
+    borderRadius: `13px`,
+    width: `307px`,
+    height: `57px`,
+    position: `absolute`,
+    left: `0px`,
+    top: `0px`,
+  });
+
+  const Q18 = styled(Link)`
+    text-align: left;
+    white-space: pre-wrap;
+    font-synthesis: none;
+    color: rgba(0, 0, 0, 1);
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+  `;
+
+  /*const RedCheckGroup = styled("div")({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
@@ -867,37 +888,37 @@ const Q18 = styled(Link)`
   top: `1219px`,
 });*/
 
-const Frame9 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `center`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  left: `29px`,
-  top: `0px`,
-  height: `19px`,
-  width: `59px`,
-});
+  const Frame9 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `center`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    left: `29px`,
+    top: `0px`,
+    height: `19px`,
+    width: `59px`,
+  });
 
-const Q19 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Product Sans`,
-  fontWeight: `400`,
-  fontSize: `16px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  margin: `0px`,
-});
+  const Q19 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Product Sans`,
+    fontWeight: `400`,
+    fontSize: `16px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    margin: `0px`,
+  });
 
-/*const IconCheckOne = styled(IconCheckOneImage)({
+  /*const IconCheckOne = styled(IconCheckOneImage)({
   height: `20px`,
   width: `20px`,
   position: `absolute`,
@@ -905,7 +926,7 @@ const Q19 = styled("div")({
   top: `0px`,
 });*/
 
-/*const GreenCheckGroup = styled("div")({
+  /*const GreenCheckGroup = styled("div")({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
@@ -920,37 +941,37 @@ const Q19 = styled("div")({
   top: `736px`,
 });*/
 
-const Frame8 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `center`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  left: `30px`,
-  top: `1px`,
-  height: `19px`,
-  width: `59px`,
-});
+  const Frame8 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `center`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    left: `30px`,
+    top: `1px`,
+    height: `19px`,
+    width: `59px`,
+  });
 
-const Q20 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Product Sans`,
-  fontWeight: `400`,
-  fontSize: `16px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  margin: `0px`,
-});
+  const Q20 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Product Sans`,
+    fontWeight: `400`,
+    fontSize: `16px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    margin: `0px`,
+  });
 
-/*const IconCheckOne1 = styled(IconCheckOne1Image)({
+  /*const IconCheckOne1 = styled(IconCheckOne1Image)({
   height: `20px`,
   width: `20px`,
   position: `absolute`,
@@ -981,50 +1002,50 @@ const IconCheckOne2 = styled(IconCheckOne2Image)({
   top: `0px`,
 });*/
 
-const Q21 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `59px`,
-  height: `19px`,
-  left: `34px`,
-  top: `1px`,
-});
+  const Q21 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    width: `59px`,
+    height: `19px`,
+    left: `34px`,
+    top: `1px`,
+  });
 
-const Frame5 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `center`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  left: `0px`,
-  top: `0px`,
-  height: `19px`,
-  width: `59px`,
-});
+  const Frame5 = styled("div")({
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `flex-start`,
+    alignItems: `center`,
+    padding: `0px`,
+    boxSizing: `border-box`,
+    left: `0px`,
+    top: `0px`,
+    height: `19px`,
+    width: `59px`,
+  });
 
-const Q22 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Product Sans`,
-  fontWeight: `400`,
-  fontSize: `16px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  margin: `0px`,
-});
+  const Q22 = styled("div")({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    fontSynthesis: `none`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Product Sans`,
+    fontWeight: `400`,
+    fontSize: `16px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    margin: `0px`,
+  });
 
 const BottomMenuBar = styled("div")({
   display: `flex`,
@@ -1184,5 +1205,5 @@ function Category() {
     </Category1>
   );
 }
-
+}
 export default Category;
