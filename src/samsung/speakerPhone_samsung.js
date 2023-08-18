@@ -1,23 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../App.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [quizAnswered, setQuizAnswered] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
+  const [aiVoiceOn, setAiVoiceOn] = useState(false);
+  const audioRef = useRef(null);
+  const audioSources = {
+    1: "./audio/55.mp3",
+    2: "./audio/56.mp3",
+    3: "./audio/57.mp3",
+    4: "./audio/59.mp3",
+    5: "./audio/60.mp3",
+  };
 
   const handleStartClick = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
     setCurrentPage(2);
   };
 
   const handleNextClick = () => {
     if (currentPage === 2) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
       setCurrentPage(3);
     } else if (currentPage === 3) {
-      setCurrentPage("quiz");
-    } else if (currentPage === "quiz") {
-      setCurrentPage("levelUp");
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(4);
+    } else if (currentPage === 4) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(5);
     }
+  };
+
+  const handleAiVoiceToggle = () => {
+    setAiVoiceOn(!aiVoiceOn);
+
+    if (audioRef.current) {
+      if (!aiVoiceOn && audioSources[currentPage]) {
+        audioRef.current.src = audioSources[currentPage];
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    }
+  };
+
+  const handlePageChange = (newPage) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = ""; // Set audio source to empty string to stop sound
+    }
+    setCurrentPage(newPage);
+    setAiVoiceOn(false);
   };
 
   const handleQuizAnswer = (isCorrect) => {
@@ -36,12 +84,13 @@ function App() {
       <VoiceButton />
       <NavigationBar />
       {renderPage()}
+      <audio ref={audioRef}>
+        <source src="" type="audio/mpeg" />
+      </audio>
     </div>
   );
 
   function VoiceButton() {
-    const [aiVoiceOn, setAiVoiceOn] = useState(false);
-
     return (
       <div className="voice_btn">
         <p>AI 보이스 {aiVoiceOn ? "켜짐" : "꺼짐"}</p>
@@ -50,7 +99,7 @@ function App() {
             type="checkbox"
             id="switch"
             checked={aiVoiceOn}
-            onChange={() => setAiVoiceOn(!aiVoiceOn)}
+            onChange={handleAiVoiceToggle}
           />
           <label htmlFor="switch" className="switch_label">
             <span className="onf_btn"></span>
@@ -111,7 +160,7 @@ function App() {
     switch (currentPage) {
       case 1:
         return (
-          <div id="pages" className="page1">
+          <div className="page1">
             <img src="img/pngegg 1.png" alt="character" />
             <p>안녕하세요.</p>
             <p>
@@ -126,7 +175,7 @@ function App() {
         );
       case 2:
         return (
-          <div id="pages" className="page2">
+          <div className="page2">
             <p style={{ fontSize: "15.5px" }}>
               가끔 손으로 무언가를 하면서 통화를 해야하는 순간이 있죠!
             </p>
@@ -144,7 +193,7 @@ function App() {
         );
       case 3:
         return (
-          <div id="pages" className="page3">
+          <div className="page3">
             <img
               className="exImg"
               src="img/speakerPhone.jpg"
@@ -162,9 +211,9 @@ function App() {
             </button>
           </div>
         );
-      case "quiz":
+      case 4:
         return (
-          <div id="pages" className="quiz_page">
+          <div className="quiz_page">
             <img
               src="img/quiz 1.png"
               alt="quiz"
@@ -255,7 +304,7 @@ function App() {
             </button>
           </div>
         );
-      case "levelUp":
+      case 5:
         return (
           <div id="pages" className="level_up_page">
             <img src="img/pngegg 1.png" alt="" />
