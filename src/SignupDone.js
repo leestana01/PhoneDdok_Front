@@ -9,7 +9,7 @@ const SignupDone = () => {
     const handed_identity = location.state.identity;
 
     const onClick_btn = () => {
-        navigate("/HomePage.jsx", {
+        navigate("/HomePage", {
             state: {
                 identity: handed_identity,
             },
