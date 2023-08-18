@@ -1,33 +1,24 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import SignupModal from "./components/SignupModal";
 import Button from "@mui/material/Button";
 import axios from "axios";
-
-const initialSendData = {
-    nickname: "",
-    identity: "",
-};
+import { useNavigate } from "react-router-dom";
 
 const SignUp4 = () => {
-    function searchApi() {
-        const url = "http://server.phoneddok.kro.kr/members";
-        axios
-            .get(url)
-            .then(function (response) {
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log("실패");
-            });
-    }
+    const navigate = useNavigate();
+
+    const initialSendData = {
+        nickname: "",
+        identity: "",
+    };
 
     const [nickNameErrors, setNickNameErrors] = useState(true);
     const [identifyErrors, setIdentifyErrors] = useState(true);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [sendData, setSendData] = useState(initialSendData);
 
     const validateCredentials = () => {
-        // Implement your logic to validate email and password.
+        // Implement your logic to validate credentials.
         // Assume successful validation and set isSuccess to true.
         setIsSuccess(true);
     };
@@ -35,9 +26,8 @@ const SignUp4 = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         validateCredentials();
+        handleRegistration();
     };
-
-    const [sendData, setSendData] = useState(initialSendData); // 초기 상태로 설정
 
     const checkNickName = (e) => {
         var nameRegExp = /^[가-힣]+$/;
@@ -48,12 +38,47 @@ const SignUp4 = () => {
         var idRegExp = /^[a-z]+[a-z0-9]{5,19}$/;
         setIdentifyErrors(!idRegExp.test(e.target.value));
     };
+
     const onchange = (e) => {
         setSendData({
             ...sendData,
             [e.target.name]: e.target.value,
         });
-        console.log(sendData);
+    };
+
+    const handleRegistration = async () => {
+        const url = "http://server.phoneddok.kro.kr/members";
+        if (isSuccess) {
+            const updatedSendData = { ...sendData };
+
+            try {
+                const response = await axios.post(url, updatedSendData, {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                console.log(response.data);
+
+                if (response.status === 201) {
+                    alert("회원가입에 성공하셨습니다.");
+                    navigate("/PhoneType", {
+                        state: {
+                            identity: sendData.identity,
+                        },
+                    });
+                } else {
+                    if (response.data && response.data.message) {
+                        alert("회원가입 실패: " + response.data.message);
+                    } else {
+                        alert("회원가입에 실패했습니다.");
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+                alert("회원가입에 실패했습니다.");
+            }
+        }
     };
 
     return (
@@ -108,13 +133,6 @@ const SignUp4 = () => {
                             }
                         />
                     </div>
-                    <SignupModal
-                        isSuccess={isSuccess}
-                        isError={!identifyErrors && !nickNameErrors}
-                        validateCredentials={validateCredentials}
-                        handleClose={() => setIsSuccess(false)}
-                        sendData={sendData}
-                    />
                     <Button
                         className="submit_button"
                         type="submit"
@@ -125,7 +143,6 @@ const SignUp4 = () => {
                         확인
                     </Button>
                 </form>
-                <button onClick={searchApi}>data</button>
             </div>
         </div>
     );
