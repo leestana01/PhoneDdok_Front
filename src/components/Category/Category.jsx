@@ -1026,28 +1026,14 @@ const Q22 = styled("div")({
   margin: `0px`,
 });
 
-const Frame7 = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: 'space-between',
-  alignItems: `flex-start`,
-  padding: `0px 4px`,
-  boxSizing: `border-box`,
-  width: `311px`,
-  left: `41px`,
-  top: `13px`,
-  height: `42.88px`,
-});
-
 const BottomMenuBar = styled("div")({
   display: `flex`,
   position: `fixed`,
   isolation: `isolate`,
   flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
+  justifyContent: 'space-between',
+  backgroundColor: '#e0b88a',
+  alignItems: `center`,
   padding: `0px`,
   boxSizing: `border-box`,
   width: `390px`,
@@ -1067,9 +1053,8 @@ const CategoryIcon = styled("img")({
 });
 
 /*const CorrectionGrey = styled("img")({
-  height: `42.74px`,
-  width: `35.94px`,
-  margin: `0px 0px 0px 55px`,
+  height: `30px`,
+  width: `30px`,
 });*/
 
 const MypageIcon = styled("img")({
@@ -1185,15 +1170,15 @@ function Category() {
           </Frame5>
         </Q21>
         <BottomMenuBar>
-          <Frame7>
-            <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
-            <CategoryIcon
-              src={CategoryIconImg}
-              loading="lazy"
-              alt={"CategoryBlack"}
-            />
-            <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
-          </Frame7>
+          <div></div>
+          <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
+          <CategoryIcon
+            src={CategoryIconImg}
+            loading="lazy"
+            alt={"CategoryBlack"}
+          />
+          <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
+          <div></div>
         </BottomMenuBar>
       </BackgroundColorGray>
     </Category1>

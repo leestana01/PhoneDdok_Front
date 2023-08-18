@@ -6,11 +6,11 @@ import CharacterPhotoImage from "../../assets/images/MyPage_CharacterPhoto.png";
 
 import { styled } from "@mui/material/styles";
 
-/*import BackIcon from "../../assets/images/back_icon.png";
+import HomeIconImg from "../../assets/images/HomeIcon.png";
 
-import Search from "../../assets/images/search.png";
+import CategoryIconImg from "../../assets/images/CategoryIcon.png";
 
-import BottomMenuBar from "../../assets/images/bottom_menu_bar.png";*/
+import MypageIconImg from "../../assets/images/MypageIcon.png";
 
 const MyPage1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -668,6 +668,43 @@ const Q7 = styled("div")({
   top: `318px`,
 });
 
+const BottomMenuBar = styled("div")({
+  display: `flex`,
+  position: `fixed`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: 'space-between',
+  backgroundColor: '#e0b88a',
+  alignItems: `center`,
+  padding: `0px`,
+  boxSizing: `border-box`,
+  width: `390px`,
+  height: `67px`,
+  left: `4px`,
+  bottom: `0px`
+});
+
+const HomeIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+const CategoryIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+/*const CorrectionGrey = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});*/
+
+const MypageIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+
 function MyPage() {
   return (
     <MyPage1>
@@ -730,6 +767,17 @@ function MyPage() {
         <Q12>{`즐겨찾기 1`}</Q12>
       </BookMark1>
       <Q7>{`즐겨찾기 항목`}</Q7>
+      <BottomMenuBar>
+        <div></div>
+        <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
+        <CategoryIcon
+          src={CategoryIconImg}
+          loading="lazy"
+          alt={"CategoryBlack"}
+        />
+        <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
+        <div></div>
+      </BottomMenuBar>
     </MyPage1>
   );
 }
