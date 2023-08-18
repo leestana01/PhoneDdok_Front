@@ -6,11 +6,11 @@ import CharacterPhotoImage from "../../assets/images/MyPage_CharacterPhoto.png";
 
 import { styled } from "@mui/material/styles";
 
-import BackIcon from "../../assets/images/back_icon.png";
+/*import BackIcon from "../../assets/images/back_icon.png";
 
 import Search from "../../assets/images/search.png";
 
-import BottomMenuBar from "../../assets/images/bottom_menu_bar.png";
+import BottomMenuBar from "../../assets/images/bottom_menu_bar.png";*/
 
 const MyPage1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -156,7 +156,7 @@ const CharacterPhoto = styled("img")({
   top: `137px`,
 });
 
-const BackIcon1 = styled(BackIcon)({
+/*const BackIcon1 = styled(BackIcon)({
   width: `22px`,
   height: `22px`,
   position: `absolute`,
@@ -178,7 +178,7 @@ const BottomMenuBar1 = styled(BottomMenuBar)({
   position: `absolute`,
   left: `0px`,
   top: `1158px`,
-});
+});*/
 
 const RecentStudy5 = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -679,7 +679,6 @@ function MyPage() {
       </Level151>
       <Q>
         <QSpan1>{`홍길동`}</QSpan1>
-        <QSpan2>{` 님`}</QSpan2>
       </Q>
       <Line3></Line3>
       <Rectangle27></Rectangle27>
@@ -689,9 +688,6 @@ function MyPage() {
         loading="lazy"
         alt={"CharacterPhoto"}
       />
-      <BackIcon1 />
-      <Search1 />
-      <BottomMenuBar />
       <RecentStudy5>
         <Rectangle24></Rectangle24>
         <Q5>{`최근 공부 5`}</Q5>

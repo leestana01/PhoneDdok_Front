@@ -4,9 +4,9 @@ import CharacterPhotoImage from "../../assets/images/HomePage_CharacterPhoto.png
 
 import { styled } from "@mui/material/styles";
 
-import BackIcon from "../../assets/images/back_icon.png";
+/*import BackIcon from "../../assets/images/back_icon.png";
 
-import BottomMenuBar from "../../assets/images/HomePageBottomMenuBar.png";
+import BottomMenuBar from "../../assets/images/HomePageBottomMenuBar.png";*/
 
 const HomePage1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -32,7 +32,7 @@ const Rectangle10 = styled("div")({
   top: `89px`,
 });
 
-const Line1 = styled("div")({
+/*const Line1 = styled("div")({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
@@ -54,9 +54,9 @@ const Line11 = styled("div")({
   position: `absolute`,
   left: `0px`,
   top: `0px`,
-});
+});*/
 
-const Search1 = styled("div")({
+/*const Search1 = styled("div")({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
@@ -69,7 +69,7 @@ const Search1 = styled("div")({
   height: `18px`,
   left: `43px`,
   top: `56px`,
-});
+});*/
 
 const Q = styled("div")({
   textAlign: `left`,
@@ -97,7 +97,7 @@ const Line4 = styled("div")({
   top: `9px`,
 });
 
-const BackIcon1 = styled(BackIcon)({
+/*const BackIcon1 = styled(BackIcon)({
   width: `22px`,
   height: `22px`,
   position: `absolute`,
@@ -111,7 +111,7 @@ const BottomMenuBar1 = styled(BottomMenuBar)({
   position: `absolute`,
   left: `0px`,
   top: `777px`,
-});
+});*/
 
 const Logo = styled("div")({
   backgroundColor: `rgba(217, 217, 217, 1)`,
@@ -181,15 +181,7 @@ function HomePage() {
   return (
     <HomePage1>
       <Rectangle10></Rectangle10>
-      <Line1>
-        <Line11></Line11>
-      </Line1>
-      <Search1>
-        <Q>{`원하는 기능을 검색해보세요!`}</Q>
-        <Line4></Line4>
-      </Search1>
-      <BackIcon1 />
-      <BottomMenuBar />
+      <Q>{`원하는 기능을 검색해보세요!`}</Q>
       <Logo></Logo>
       <CharacterPhoto
         src={CharacterPhotoImage}

@@ -48,10 +48,11 @@ import MemoAppS from "./samsung/memo_samsung";
 import Kakao from "./kakao.js";
 
 import Wifi from "./iphone/wifi_iphone.js";
+import WifiS from "./samsung/wifi_samsung";
 
 // 김재우
 import Category from "./components/Category/Category";
-import CharacterChange from "./components/CharacterChange/CharacterChange";
+/*import CharacterChange from "./components/CharacterChange/CharacterChange";*/
 import HomePage from "./components/HomePage/HomePage";
 import MyCharacter from "./components/MyCharacter/MyCharacter";
 import MyPage from "./components/MyPage/MyPage";
@@ -73,6 +74,7 @@ function App() {
 
         {/* 이나원 */}
         <Route path="/addPhoneNumber" element={<AddPhoneNumber />} />
+<<<<<<< HEAD
         <Route path="/addPhoneNumberS" element={<AddPhoneNumberS />} />
 
         <Route path="/Mute" element={<Mute />} />
@@ -110,6 +112,31 @@ function App() {
         {/* 김재우 */}
         <Route path="/Category" element={<Category />} />
         <Route path="/CharacterChange" element={<CharacterChange />} />
+=======
+        <Route path="/Mute" element={<Mute />} />
+        <Route path="/Timer" element={<Timer />} />
+        <Route path="/Keyboard" element={<Keyboard />} />
+        <Route path="/Screenshot" element={<Screenshoot />} />
+        <Route path="/OnOff" element={<OnOff />} />
+        <Route path="/FaceTime" element={<FaceTime />} />
+        <Route path="/SpeakerPhone" element={<SpeakerPhone />} />
+        <Route path="/DownApp" element={<DownApp />} />
+        <Route path="/Memo" element={<MemoApp />} />
+        <Route path="/Kakao" element={<Kakao />} />
+        <Route path="/Wifi" element={<Wifi />} />
+
+        <Route path="/MuteS" element={<MuteS />} />
+        <Route path="/TimerS" element={<TimerS />} />
+        <Route path="/ScreenshotS" element={<ScreenshootS />} />
+        <Route path="/OnOffS" element={<OnOffS />} />
+        <Route path="/FaceTimeS" element={<FaceTimeS />} />
+        <Route path="/SpeakerPhoneS" element={<SpeakerPhoneS />} />
+        <Route path="/DownAppS" element={<DownAppS />} />
+        <Route path="/MemoS" element={<MemoAppS />} />
+        <Route path="/WifiS" element={<WifiS />} />
+        {/* 김재우 */}
+        <Route path="/Category" element={<Category />} />
+>>>>>>> origin/jw
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/MyCharacter" element={<MyCharacter />} />
         <Route path="/MyPage" element={<MyPage />} />
