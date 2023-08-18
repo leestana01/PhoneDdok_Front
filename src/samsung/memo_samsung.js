@@ -124,16 +124,11 @@ function App() {
             src="img/newMemo.png"
             alt="newMemo"
           />
-          <p>먼저 메모 어플을 들어가볼까요?</p>
+          <p>먼저 Samsung notes 어플을 들어가볼까요?</p>
           <p style={{ fontSize: "16px" }}>
-            우측 하단에 버튼을 누르면 새 메모를 작성할 수 있어요.
+            우측 하단에 동그라미 버튼을 누르면 새 메모를 작성할 수 있어요.
           </p>
-          <p>
-            <b style={{ fontSize: "17px", color: "#1f4ef5" }}>
-              작성을 다 하고 완료 버튼
-            </b>
-            을 누르면 메모가 성공적으로 저장됩니다!
-          </p>
+          <p>메모는 자동적으로 저장되니 너무 편리하죠?</p>
           <button className="nextBtn" type="button" onClick={handleNextClick}>
             <img src="img/left-bottom_character.png" alt="next_btn" />
             다음
@@ -184,6 +179,7 @@ function App() {
           <div className="quiz">
             <button
               className={`quizBtn ${
+                //사진 바꾸기
                 clickedButton === "collectAnswer" ? "clicked" : ""
               }`}
               id="collectAnswer"

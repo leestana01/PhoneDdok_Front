@@ -148,12 +148,12 @@ function App() {
             <img
               className="exImg"
               src="img/speakerPhone.jpg"
-              alt="speakerPhone"
+              alt="speakerPhone" //사진바꾸기
             />
             <p>전화를 걸고 있는 상태일 때 휴대폰 화면입니다.</p>
             <p style={{ fontSize: "16px" }}>
-              여기서{" "}
-              <b style={{ fontSize: "17px", color: "#1f4ef5" }}>오디오 버튼</b>
+              여기서 좌측 하단의{" "}
+              <b style={{ fontSize: "17px", color: "#1f4ef5" }}>스피커 버튼</b>
               을 눌러주면 바로 스피커폰으로 전화를 할 수 있게 됩니다!
             </p>
             <button className="nextBtn" type="button" onClick={handleNextClick}>
@@ -227,7 +227,7 @@ function App() {
                 <img
                   className="smileImg"
                   src="img/speaker.jpg"
-                  alt="speakerPhone"
+                  alt="speakerPhone" //사진바꾸기
                 />
               </button>
               <hr className="line" />
@@ -245,7 +245,7 @@ function App() {
                 <img
                   className="smileImg"
                   src="img/noSpeaker.jpg"
-                  alt="noSpeakerPhone"
+                  alt="noSpeakerPhone" //사진 바꾸기
                 />
               </button>
             </div>
