@@ -27,7 +27,7 @@ function App() {
     <div>
       <div className="screen_shot_iphone">
         <div className="back_btn">
-          <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+          <img src="img/icon _arrow back ios_.png" alt="back_btn" />
         </div>
         <div className="voice_btn">
           <p>AI 보이스 켜짐</p>

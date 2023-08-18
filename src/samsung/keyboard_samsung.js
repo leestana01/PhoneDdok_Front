@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="screen_shot_iphone">
       <button type="button" className="back_btn">
-        <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+        <img src="img/icon _arrow back ios_.png" alt="back_btn" />
       </button>
       <VoiceButton />
       <NavigationBar />
