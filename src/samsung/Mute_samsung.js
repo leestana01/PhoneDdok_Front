@@ -1,24 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../App.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [aiVoiceOn, setAiVoiceOn] = useState(false);
   const [quizAnswered, setQuizAnswered] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
+  const [aiVoiceOn, setAiVoiceOn] = useState(false);
+  const audioRef = useRef(null);
+  const audioSources = {
+    1: "./audio/01.mp3",
+    2: "./audio/02.mp3",
+    3: "./audio/03.mp3",
+    4: "./audio/04.mp3",
+    5: "./audio/07.mp3",
+  };
 
   const handleStartClick = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
     setCurrentPage(2);
   };
 
   const handleNextClick = () => {
+    if (currentPage === 2) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(3);
+    }
+    if (currentPage === 3) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(4);
+    }
     if (currentPage === 4) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
       setCurrentPage("quiz");
     } else if (currentPage === "quiz") {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
       setCurrentPage("levelUp");
-    } else {
-      setCurrentPage(currentPage + 1);
     }
+  };
+
+  const handleAiVoiceToggle = () => {
+    setAiVoiceOn(!aiVoiceOn);
+
+    if (audioRef.current) {
+      if (!aiVoiceOn && audioSources[currentPage]) {
+        audioRef.current.src = audioSources[currentPage];
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    }
+  };
+
+  const handlePageChange = (newPage) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = ""; // Set audio source to empty string to stop sound
+    }
+    setCurrentPage(newPage);
+    setAiVoiceOn(false);
   };
 
   const handleQuizAnswer = (isCorrect) => {
@@ -29,7 +84,87 @@ function App() {
   // App 컴포넌트 내에서 useState 추가
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const renderPage = () => {
+  return (
+    <div className="screen_shot_iphone">
+      <button type="button" className="back_btn">
+        <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+      </button>
+      <VoiceButton />
+      <NavigationBar />
+      {renderPage()}
+      <audio ref={audioRef}>
+        <source src="" type="audio/mpeg" />
+      </audio>
+    </div>
+  );
+
+  function VoiceButton() {
+    return (
+      <div className="voice_btn">
+        <p>AI 보이스 {aiVoiceOn ? "켜짐" : "꺼짐"}</p>
+        <div className="wrapper">
+          <input
+            type="checkbox"
+            id="switch"
+            checked={aiVoiceOn}
+            onChange={handleAiVoiceToggle}
+          />
+          <label htmlFor="switch" className="switch_label">
+            <span className="onf_btn"></span>
+          </label>
+        </div>
+      </div>
+    );
+  }
+
+  function NavigationBar() {
+    return (
+      <div className="navi_bar">
+        <div>
+          <button className="menuBtn" type="button">
+            <img
+              src="img/home.png"
+              alt="homeNoneSelect"
+              style={{ display: "none" }}
+            />
+            <img src="img/home1.png" alt="homeSelect" />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/menu.png" alt="menuNoneSelect" />
+            <img
+              src="img/menu1.png"
+              alt="menuSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/check.png" alt="checkNoneSelct" />
+            <img
+              src="img/check1.png"
+              alt="checkSelct"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/user.png" alt="userNoneSelect" />
+            <img
+              src="img/user1.png"
+              alt="userSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  function renderPage() {
     switch (currentPage) {
       case 1:
         return (
@@ -198,86 +333,6 @@ function App() {
       default:
         return null;
     }
-  };
-
-  return (
-    <div className="screen_shot_iphone">
-      <button type="button" className="back_btn">
-        <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
-      </button>
-      <VoiceButton />
-      <NavigationBar />
-      {renderPage()}
-    </div>
-  );
+  }
 }
-
-function VoiceButton() {
-  const [aiVoiceOn, setAiVoiceOn] = useState(false);
-
-  return (
-    <div className="voice_btn">
-      <p>AI 보이스 {aiVoiceOn ? "켜짐" : "꺼짐"}</p>
-      <div className="wrapper">
-        <input
-          type="checkbox"
-          id="switch"
-          checked={aiVoiceOn}
-          onChange={() => setAiVoiceOn(!aiVoiceOn)}
-        />
-        <label htmlFor="switch" className="switch_label">
-          <span className="onf_btn"></span>
-        </label>
-      </div>
-    </div>
-  );
-}
-
-function NavigationBar() {
-  return (
-    <div className="navi_bar">
-      <div>
-        <button className="menuBtn" type="button">
-          <img
-            src="img/home.png"
-            alt="homeNoneSelect"
-            style={{ display: "none" }}
-          />
-          <img src="img/home1.png" alt="homeSelect" />
-        </button>
-      </div>
-      <div>
-        <button className="menuBtn" type="button">
-          <img src="img/menu.png" alt="menuNoneSelect" />
-          <img
-            src="img/menu1.png"
-            alt="menuSelect"
-            style={{ display: "none" }}
-          />
-        </button>
-      </div>
-      <div>
-        <button className="menuBtn" type="button">
-          <img src="img/check.png" alt="checkNoneSelct" />
-          <img
-            src="img/check1.png"
-            alt="checkSelct"
-            style={{ display: "none" }}
-          />
-        </button>
-      </div>
-      <div>
-        <button className="menuBtn" type="button">
-          <img src="img/user.png" alt="userNoneSelect" />
-          <img
-            src="img/user1.png"
-            alt="userSelect"
-            style={{ display: "none" }}
-          />
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export default App;
