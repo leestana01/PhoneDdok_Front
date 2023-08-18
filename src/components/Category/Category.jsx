@@ -1026,27 +1026,12 @@ const Q22 = styled("div")({
   margin: `0px`,
 });
 
-const BottomMenuBar = styled("div")({
-  display: `flex`,
-  position: `absolute`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  width: `390px`,
-  height: `67px`,
-  left: `4px`,
-  top: `1523px`,
-});
-
 const Frame7 = styled("div")({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
   flexDirection: `row`,
-  justifyContent: `flex-start`,
+  justifyContent: 'space-between',
   alignItems: `flex-start`,
   padding: `0px 4px`,
   boxSizing: `border-box`,
@@ -1056,17 +1041,29 @@ const Frame7 = styled("div")({
   height: `42.88px`,
 });
 
+const BottomMenuBar = styled("div")({
+  display: `flex`,
+  position: `fixed`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: `flex-start`,
+  alignItems: `flex-start`,
+  padding: `0px`,
+  boxSizing: `border-box`,
+  width: `390px`,
+  height: `67px`,
+  left: `4px`,
+  bottom: `0px`
+});
+
 const HomeIcon = styled("img")({
-  height: `20.75px`,
-  width: `20.86px`,
-  margin: `0px`,
-  left: "50%",
+  height: `30px`,
+  width: `30px`,
 });
 
 const CategoryIcon = styled("img")({
-  height: `42.88px`,
-  width: `35.3px`,
-  margin: `0px 0px 0px 55px`,
+  height: `30px`,
+  width: `30px`,
 });
 
 /*const CorrectionGrey = styled("img")({
@@ -1076,9 +1073,8 @@ const CategoryIcon = styled("img")({
 });*/
 
 const MypageIcon = styled("img")({
-  height: `42.88px`,
-  width: `44.15px`,
-  margin: `0px 0px 0px 55px`,
+  height: `30px`,
+  width: `30px`,
 });
 
 function Category() {

@@ -110,7 +110,6 @@ function App() {
 
         {/* 김재우 */}
         <Route path="/Category" element={<Category />} />
-        <Route path="/CharacterChange" element={<CharacterChange />} />
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/MyCharacter" element={<MyCharacter />} />
         <Route path="/MyPage" element={<MyPage />} />
