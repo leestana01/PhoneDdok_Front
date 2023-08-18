@@ -8,19 +8,39 @@ import IconCheckOne1Image from "../../assets/images/Category_____icon__check_one
 
 import IconCheckOne2Image from "../../assets/images/Category_____icon__check_one2_.png";*/
 
-import HomeGreyImage from "../../assets/images/Category_HomeGrey.png";
+import HomeIconImg from "../../assets/images/HomeIcon.png";
 
-import CategoryBlackImage from "../../assets/images/Category_CategoryBlack.png";
+import CategoryIconImg from "../../assets/images/CategoryIcon.png";
 
-import CorrectionGreyImage from "../../assets/images/Category_CorrectionGrey.png";
+import MypageIconImg from "../../assets/images/MypageIcon.png";
 
-import MyPageGreyImage from "../../assets/images/Category_MyPageGrey.png";
+/*import CorrectionGreyImage from "../../assets/images/Category_CorrectionGrey.png";*/
 
 import { styled } from "@mui/material/styles";
 
 /*import BackIcon from "../../assets/images/back_icon.png";
 
 import Search from "../../assets/images/search.png";*/
+
+/*import { useNavigate } from "react-router";
+
+//Category.jsx
+const handleClick = (e) => {
+  const navigate = useNavigate();
+  navigate("/edit", { state: e.target.value });
+};
+
+// edit.jsx
+import { useLocation } from "react-router";
+
+const Edit = () => {
+  const { state } = useLocation();
+  console.log(state);
+};*/
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import DownAppA from "../../iphone/downApp_iphone.js";
 
 const Category1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -219,22 +239,22 @@ const Rectangle242 = styled("div")({
   top: `0px`,
 });
 
-const Q4 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q4 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const Wallpaper = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -354,22 +374,22 @@ const Rectangle245 = styled("div")({
   top: `0px`,
 });
 
-const Q7 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q7 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const MemoApp = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -399,22 +419,22 @@ const Rectangle246 = styled("div")({
   top: `0px`,
 });
 
-const Q8 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q8 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const AppInstallDelete = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -444,22 +464,22 @@ const Rectangle247 = styled("div")({
   top: `0px`,
 });
 
-const Q9 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q9 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const Q10 = styled("div")({
   display: `flex`,
@@ -500,22 +520,22 @@ const Rectangle248 = styled("img")({
   top: `0px`,
 });
 
-const Q11 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q11 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const TimerAlarm = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -545,22 +565,22 @@ const Rectangle249 = styled("div")({
   top: `0px`,
 });
 
-const Q12 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q12 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const Brightness = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -635,22 +655,22 @@ const Rectangle2411 = styled("div")({
   top: `0px`,
 });
 
-const Q14 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q14 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const Capture = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -680,22 +700,22 @@ const Rectangle2412 = styled("div")({
   top: `0px`,
 });
 
-const Q15 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q15 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const PhoneOnOff = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -725,22 +745,22 @@ const Rectangle2413 = styled("div")({
   top: `0px`,
 });
 
-const Q16 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q16 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 const VideoCall = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -770,22 +790,22 @@ const Rectangle2414 = styled("div")({
   top: `0px`,
 });
 
-const Q17 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `28px`,
-  top: `20px`,
-});
+const Q17 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 28px;
+  top: 20px;
+`;
 
 const SpeakerPhone = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -815,22 +835,22 @@ const Rectangle2415 = styled("div")({
   top: `0px`,
 });
 
-const Q18 = styled("div")({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  fontSynthesis: `none`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `400`,
-  fontSize: `14px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `25px`,
-  top: `20px`,
-});
+const Q18 = styled(Link)`
+  text-align: left;
+  white-space: pre-wrap;
+  font-synthesis: none;
+  color: rgba(0, 0, 0, 1);
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+`;
 
 /*const RedCheckGroup = styled("div")({
   display: `flex`,
@@ -1036,25 +1056,26 @@ const Frame7 = styled("div")({
   height: `42.88px`,
 });
 
-const HomeGrey = styled("img")({
-  height: `42.75px`,
+const HomeIcon = styled("img")({
+  height: `20.75px`,
   width: `20.86px`,
   margin: `0px`,
+  left: "50%",
 });
 
-const CategoryBlack = styled("img")({
+const CategoryIcon = styled("img")({
   height: `42.88px`,
   width: `35.3px`,
   margin: `0px 0px 0px 55px`,
 });
 
-const CorrectionGrey = styled("img")({
+/*const CorrectionGrey = styled("img")({
   height: `42.74px`,
   width: `35.94px`,
   margin: `0px 0px 0px 55px`,
-});
+});*/
 
-const MyPageGrey = styled("img")({
+const MypageIcon = styled("img")({
   height: `42.88px`,
   width: `44.15px`,
   margin: `0px 0px 0px 55px`,
@@ -1079,7 +1100,7 @@ function Category() {
         <Q3>
           <Wifi>
             <Rectangle242>
-              <Q4>{`와이파이 연결하기`}</Q4>
+              <Q4 to="/Wifi">{`와이파이 연결하기`}</Q4>
             </Rectangle242>
           </Wifi>
           <Wallpaper>
@@ -1094,17 +1115,17 @@ function Category() {
           </KakaoTalk>
           <PhoneBook>
             <Rectangle245>
-              <Q7>{`연락처 추가 및 삭제하기`}</Q7>
+              <Q7 to="/AddPhoneNumberA">{`연락처 추가 및 삭제하기`}</Q7>
             </Rectangle245>
           </PhoneBook>
           <MemoApp>
             <Rectangle246>
-              <Q8>{`메모장 활용하기`}</Q8>
+              <Q8 to="/Memo">{`메모장 활용하기`}</Q8>
             </Rectangle246>
           </MemoApp>
           <AppInstallDelete>
             <Rectangle247>
-              <Q9>{`앱 설치 및 삭제하기`}</Q9>
+              <Q9 to="/DownApp">{`앱 설치 및 삭제하기`}</Q9>
             </Rectangle247>
           </AppInstallDelete>
         </Q3>
@@ -1115,12 +1136,15 @@ function Category() {
               loading="lazy"
               alt={"Rectangle 24"}
             />
-            <Q11>{`소리 및 무음 설정하기`}</Q11>
+            <Q11 to="/Mute">{`소리 및 무음 설정하기`}</Q11>
           </SoundVibration>
           <TimerAlarm>
-            <Rectangle249>
-              <Q12>{`타이머 및 알람 설정하기`}</Q12>
-            </Rectangle249>
+            <Rectangle249
+              src={Rectangle248Image}
+              loading="lazy"
+              alt={"Rectangle 24"}
+            />
+            <Q12 to="/Timer">{`타이머 및 알람 설정하기`}</Q12>
           </TimerAlarm>
           <Brightness>
             <Rectangle2410>
@@ -1129,30 +1153,36 @@ function Category() {
           </Brightness>
           <Keyboard>
             <Rectangle2411>
-              <Q14>{`키보드 활용하기`}</Q14>
+              <Q14 to="/Keyboard">{`키보드 활용하기`}</Q14>
             </Rectangle2411>
           </Keyboard>
           <Capture>
             <Rectangle2412>
-              <Q15>{`화면 캡쳐하기기`}</Q15>
+              <Q15 to="/Screenshot">{`화면 캡쳐하기기`}</Q15>
             </Rectangle2412>
           </Capture>
           <PhoneOnOff>
             <Rectangle2413>
-              <Q16>{`휴대폰 켜고 끄기`}</Q16>
+              <Q16 to="/OnOff">{`휴대폰 켜고 끄기`}</Q16>
             </Rectangle2413>
           </PhoneOnOff>
           <VideoCall>
             <Rectangle2414>
-              <Q17>{`영상통화 걸기`}</Q17>
+              <Q17 to="/FaceTime">{`영상통화 걸기`}</Q17>
             </Rectangle2414>
           </VideoCall>
           <SpeakerPhone>
             <Rectangle2415>
-              <Q18>{`스피커폰으로 통화하기`}</Q18>
+              <Q18 to="/SpeakerPhone">{`스피커폰으로 통화하기`}</Q18>
             </Rectangle2415>
           </SpeakerPhone>
         </Q10>
+        <Frame9>
+          <Q19>{`고급기능`}</Q19>
+        </Frame9>
+        <Frame8>
+          <Q20>{`중급기능`}</Q20>
+        </Frame8>
         <Q21>
           <Frame5>
             <Q22>{`초급기능`}</Q22>
@@ -1160,22 +1190,13 @@ function Category() {
         </Q21>
         <BottomMenuBar>
           <Frame7>
-            <HomeGrey src={HomeGreyImage} loading="lazy" alt={"HomeGrey"} />
-            <CategoryBlack
-              src={CategoryBlackImage}
+            <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
+            <CategoryIcon
+              src={CategoryIconImg}
               loading="lazy"
               alt={"CategoryBlack"}
             />
-            <CorrectionGrey
-              src={CorrectionGreyImage}
-              loading="lazy"
-              alt={"CorrectionGrey"}
-            />
-            <MyPageGrey
-              src={MyPageGreyImage}
-              loading="lazy"
-              alt={"MyPageGrey"}
-            />
+            <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
           </Frame7>
         </BottomMenuBar>
       </BackgroundColorGray>

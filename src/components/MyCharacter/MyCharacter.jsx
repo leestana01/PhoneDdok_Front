@@ -22,9 +22,9 @@ import Vector6Image from "../../assets/images/MyCharacter_Vector.png";
 
 import { styled } from "@mui/material/styles";
 
-import BackIcon from "../../assets/images/back_icon.png";
+/*import BackIcon from "../../assets/images/back_icon.png";
 
-import Search from "../../assets/images/search.png";
+import Search from "../../assets/images/search.png";*/
 
 const MyCharacter1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -451,7 +451,7 @@ const Q5 = styled("div")({
   top: `26px`,
 });
 
-const BackIcon1 = styled(BackIcon)({
+/*const BackIcon1 = styled(BackIcon)({
   width: `22px`,
   height: `22px`,
   position: `absolute`,
@@ -465,7 +465,7 @@ const Search1 = styled(Search)({
   position: `absolute`,
   left: `43px`,
   top: `56px`,
-});
+});*/
 
 function MyCharacter() {
   return (
@@ -531,8 +531,6 @@ function MyCharacter() {
 `}
         </Q5>
       </Explanation>
-      <BackIcon1 />
-      <Search1 />
     </MyCharacter1>
   );
 }
