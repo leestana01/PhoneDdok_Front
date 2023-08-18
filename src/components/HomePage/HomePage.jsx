@@ -4,9 +4,11 @@ import CharacterPhotoImage from "../../assets/images/HomePage_CharacterPhoto.png
 
 import { styled } from "@mui/material/styles";
 
-/*import BackIcon from "../../assets/images/back_icon.png";
+import HomeIconImg from "../../assets/images/HomeIcon.png";
 
-import BottomMenuBar from "../../assets/images/HomePageBottomMenuBar.png";*/
+import CategoryIconImg from "../../assets/images/CategoryIcon.png";
+
+import MypageIconImg from "../../assets/images/MypageIcon.png";
 
 const HomePage1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -97,21 +99,42 @@ const Line4 = styled("div")({
   top: `9px`,
 });
 
-/*const BackIcon1 = styled(BackIcon)({
-  width: `22px`,
-  height: `22px`,
-  position: `absolute`,
-  left: `11px`,
-  top: `55px`,
-});
-
-const BottomMenuBar1 = styled(BottomMenuBar)({
+const BottomMenuBar = styled("div")({
+  display: `flex`,
+  position: `fixed`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: 'space-between',
+  backgroundColor: '#e0b88a',
+  alignItems: `center`,
+  padding: `0px`,
+  boxSizing: `border-box`,
   width: `390px`,
   height: `67px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `777px`,
+  left: `4px`,
+  bottom: `0px`
+});
+
+const HomeIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+const CategoryIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+/*const CorrectionGrey = styled("img")({
+  height: `30px`,
+  width: `30px`,
 });*/
+
+const MypageIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
 
 const Logo = styled("div")({
   backgroundColor: `rgba(217, 217, 217, 1)`,
@@ -192,6 +215,20 @@ function HomePage() {
         <Rectangle24></Rectangle24>
         <Q1>{`캐릭터 말 입력`}</Q1>
       </SpeechBubble>
+      
+      
+      
+      <BottomMenuBar>
+        <div></div>
+        <HomeIcon src={HomeIconImg} loading="lazy" alt={"Home"} />
+        <CategoryIcon
+          src={CategoryIconImg}
+          loading="lazy"
+          alt={"CategoryBlack"}
+        />
+        <MypageIcon src={MypageIconImg} loading="lazy" alt={"MyPageGrey"} />
+        <div></div>
+      </BottomMenuBar>
     </HomePage1>
   );
 }
