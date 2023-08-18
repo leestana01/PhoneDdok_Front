@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp1 = () => {
     const movePage = useNavigate();
-    
 
     function goSignup2() {
         movePage("/SignUp2");

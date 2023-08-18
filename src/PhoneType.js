@@ -1,38 +1,73 @@
-import FormControl from "@mui/material/FormControl";
-import { InputLabel } from "@mui/material";
-import NativeSelect from "@mui/material/NativeSelect";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const PhoneType = () => {
-    const [type, setType] = useState("");
-    const onChange = (e) => {
-        setType(e.target.value);
+    const [inputPhone, setInputPhone] = useState(1);
+    const movePage = useNavigate();
+
+    const location = useLocation();
+    const handed_identity = location.state.identity;
+
+    function goSignUpDone() {
+        // 선택한 핸드폰 유형과 identity 정보를 서버로 전송
+        axios
+            .put(`http://server.phoneddok.kro.kr/members/${handed_identity}`, {
+                phone: inputPhone,
+            })
+            .then((response) => {
+                // 백엔드 응답 처리
+                console.log("전송 성공:", response.data);
+                movePage("/SignupDone", {
+                    state: {
+                        identity: handed_identity,
+                    },
+                });
+            })
+            .catch((error) => {
+                console.error("전송 실패:", error);
+                // 에러 처리
+            });
+    }
+
+    const handleButtonClick = (value) => {
+        setInputPhone(value);
+        console.log(value);
     };
-    
+
     return (
         <div className="PhoneType">
-            <form className="phonetype_form_container">
-                <div className="head">
-                    <h2>핸드폰 기종을 선택 해주세요.</h2>
-                    <h4>내가 보유한 휴대폰에 맞게 교육이 진행됩니다.</h4>
+            <form className="target_form_container">
+                <h2>핸드폰 기종을 선택 해주세요</h2>
+                <h3>내가 보유한 휴대폰에 맞게 진행됩니다</h3>
+                <div className="button-group">
+                    <button
+                        type="button"
+                        className={`button ${
+                            inputPhone === 1 ? "selected" : ""
+                        }`}
+                        onClick={() => handleButtonClick(1)}
+                    >
+                        갤럭시
+                    </button>
+                    <button
+                        type="button"
+                        className={`button ${
+                            inputPhone === 2 ? "selected" : ""
+                        }`}
+                        onClick={() => handleButtonClick(2)}
+                    >
+                        아이폰
+                    </button>
+                    <button
+                        type="button"
+                        className="target_submit_btn"
+                        onClick={goSignUpDone}
+                    >
+                        확인
+                    </button>
                 </div>
-                <FormControl fullWidth>
-                    <InputLabel
-                        variant="standard"
-                        htmlFor="uncontrolled-native"
-                    >
-                        기종 선택
-                    </InputLabel>
-                    <NativeSelect
-                        inputProps={{
-                            name: "Phone Type",
-                        }}
-                        onChange={onChange}
-                    >
-                        <option value={"galaxy"}>갤럭시</option>
-                        <option value={"iphone"}>아이폰</option>
-                    </NativeSelect>
-                </FormControl>
-                <button className="phonetype_submit_btn">확인</button>
             </form>
         </div>
     );
