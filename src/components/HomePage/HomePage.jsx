@@ -13,7 +13,7 @@ import MypageIconImg from "../../assets/images/MypageIcon.png";
 
 import "../../App.css";
 
-const HomePage = () => {
+/*const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const HomePage = () => {
         dentity: handed_identity,
       },
     });
-  };
+  };*/
 
   const HomePage1 = styled("div")({
     backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -253,13 +253,15 @@ function NavigationBar() {
         </button>
       </div>
       <div>
-        <button className="menuBtn" type="button">
+        <button to="/Category" className="menuBtn" type="Link">
+          <a href="../category">
           <img src="img/menu.png" alt="menuNoneSelect" />
           <img
             src="img/menu1.png"
             alt="menuSelect"
             style={{ display: "none" }}
           />
+          </a>
         </button>
       </div>
       <div>
@@ -274,16 +276,19 @@ function NavigationBar() {
       </div>
       <div>
         <button className="menuBtn" type="button">
+          
+          <a href="../mypage">
           <img src="img/user.png" alt="userNoneSelect" />
           <img
             src="img/user1.png"
             alt="userSelect"
             style={{ display: "none" }}
           />
+          </a>
         </button>
       </div>
     </div>
   );
 }
-}
+
 export default HomePage;

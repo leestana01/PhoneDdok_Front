@@ -68,32 +68,6 @@ const BackgroundColorGray = styled("div")({
   top: `56px`,
 });*/
 
-const Category = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [phoneType, setPhoneType] = useState(null);
-
-  const handed_identity = location.state.identity;
-
-  axios
-    .get(`http://server.phoneddok.kro.kr/members?identity=${handed_identity}`)
-    .then((response) => {
-      // 서버에서 받아온 회원 정보
-      const memberData = response.data;
-      // 회원 정보에서 phone 값을 꺼내와서 상태에 설정
-      setPhoneType(memberData.phone);
-    })
-    .catch((error) => {
-      console.error("데이터 가져오기 실패:", error);
-    });
-
-  const onClick_btn = () => {
-    navigate("/HomePage", {
-      state: {
-        identity: handed_identity,
-      },
-    });
-  };
 
   const Q = styled("div")({
     display: `flex`,
@@ -1224,5 +1198,5 @@ function NavigationBar() {
     </div>
   );
 }
-}
+
 export default Category;
