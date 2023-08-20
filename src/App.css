@@ -3,247 +3,246 @@
 /* Signup1 */
 
 .signup1_blue_font {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 .signup1_content {
-    color: gray;
+  color: gray;
 }
 .signup1_push_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-bottom: px;
-    border-radius: 5px;
-    margin-top: 200px;
-    text-align: center;
-    background-color: #007bff;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-bottom: px;
+  border-radius: 5px;
+  margin-top: 200px;
+  text-align: center;
+  background-color: #007bff;
 }
 .signup1_content_whole {
-    margin-top: 210px;
-    height: 100%;
+  margin-top: 210px;
+  height: 100%;
 }
 .signup1_push_form_container {
-    width: 25vw;
+  width: 25vw;
 }
 
 /* SignUp */
 .SignUp4 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .SignUp4 .head h2 {
-    text-align: left;
-    margin: 0;
+  text-align: left;
+  margin: 0;
 }
 
 .signup_texfield {
-    margin-bottom: 30px;
-    width: 100%;
+  margin-bottom: 30px;
+  width: 100%;
 }
 
 .form_container {
-    display: flex;
-    flex-direction: column; /* 아이템을 세로로 배치 */
-    align-items: center; /* 아이템을 수평 가운데로 정렬 */
-    justify-content: center; /* 아이템을 수직 가운데로 정렬 */
-    padding: 20px; /* 여백을 추가합니다 */
-    border-radius: 10px; /* 둥근 모서리를 추가합니다 */
-    width: 25vw; /* 뷰포트 가로 너비의 50%로 설정합니다 */
+  display: flex;
+  flex-direction: column; /* 아이템을 세로로 배치 */
+  align-items: center; /* 아이템을 수평 가운데로 정렬 */
+  justify-content: center; /* 아이템을 수직 가운데로 정렬 */
+  padding: 20px; /* 여백을 추가합니다 */
+  border-radius: 10px; /* 둥근 모서리를 추가합니다 */
+  width: 25vw; /* 뷰포트 가로 너비의 50%로 설정합니다 */
 }
 
 /* Target */
 .Target {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
 }
 
 .button {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 5px;
-    text-align: left;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: left;
 }
 .target_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-top: 40px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #007bff;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-top: 40px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #007bff;
 }
 
 .button.selected {
-    background-color: #007bff;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
 
 .target_form_container {
-    width: 25vw;
+  width: 25vw;
 }
 
 /* Loading */
 .Loading {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  flex-direction: column;
 }
 .title_color {
-    color: cornflowerblue;
+  color: cornflowerblue;
 
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* PushAlert */
 .PushAlert {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .push_head_bell_image {
-    display: flex;
-    align-items: center; /* 세로 가운데 정렬 */
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
 }
 .push_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-top: 130px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #007bff;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-top: 130px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #007bff;
 }
 .bell_image {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .push_form_container {
-    width: 25vw;
+  width: 25vw;
 }
 
 /* 기종 선택 */
 .PhoneType {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25vw;
-    margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  margin: 0 auto;
 }
 
 .phonetype_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-top: 60px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #007bff;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-top: 60px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #007bff;
 }
 
 /* 회원가입 완료 */
 
 .SignupDone {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25vw;
-    margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  margin: 0 auto;
 }
 .signupdone_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-top: 60px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #007bff;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-top: 60px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #007bff;
 }
 
 /* signup2 */
 .SignUp2 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup2_container {
-    width: 25vw;
+  width: 25vw;
 }
 .signup2_background_img {
-    width: 25vw;
-    margin-top: 0;
+  width: 25vw;
+  margin-top: 0;
 }
 
 /* signup3 */
 
 .SignUp3 {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signup3_container {
-    width: 25vw;
+  width: 25vw;
 }
 .signup3_background_img {
-    width: 20vw;
-    margin: 0 auto 30px auto;
-    display: flex;
+  width: 20vw;
+  margin: 0 auto 30px auto;
+  display: flex;
 }
 
 .signup3_push_submit_btn {
-    padding: 15px 20px;
-    width: 100%;
-    border: none;
-    background-color: #ccc;
-    color: white;
-    cursor: pointer;
-    margin-top: 170px;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  cursor: pointer;
+  margin-top: 170px;
 
-    border-radius: 5px;
-    text-align: center;
-    background-color: #007bff;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #007bff;
 }
-
 
 /* ------------------------------ 이나원 ------------------------------- */
 .screen_shot_iphone {
@@ -253,7 +252,7 @@
   position: relative;
   top: 0%;
   left: 15%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .back_btn {
@@ -326,18 +325,18 @@
 }
 
 #pages {
-  overflow: scroll;
+  overflow: hidden;
   text-align: center;
 }
 .navi_bar {
   background-color: #f8f8fa;
   display: flex;
+  position: fixed;
   justify-content: space-around;
   text-align: center;
-  position: relative;
-  top: 470px;
   height: 70px;
   width: 370px;
+  bottom: 0px;
 }
 
 .menuBtn {
@@ -862,7 +861,6 @@
   text-align: center;
 }
 
-
 /* ---------------------------------- 김재우 ------------------------------*/
 .App {
   text-align: center;
@@ -902,4 +900,3 @@
     transform: rotate(360deg);
   }
 }
-

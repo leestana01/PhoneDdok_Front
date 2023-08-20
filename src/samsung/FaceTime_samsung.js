@@ -1,52 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../App.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [aiVoiceOn, setAiVoiceOn] = useState(false);
-
-  const playVoice = (voiceText) => {
-    if (aiVoiceOn) {
-      // voiceText에 따라 재생할 음원 파일을 선택합니다.
-      let audioFile;
-
-      switch (voiceText) {
-        case "Hi":
-          audioFile = "/audio/50.mp3";
-          break;
-        default:
-          audioFile = null; // 해당 텍스트에 대한 음원이 없는 경우
-      }
-
-      if (audioFile) {
-        const audio = new Audio(audioFile); // 여기서 audioFile은 문자열(경로)이어야 합니다.
-        audio.play();
-      } else {
-        console.log("No audio file to play.");
-      }
-    }
+  const audioRef = useRef(null);
+  const audioSources = {
+    1: "./audio/50.mp3",
+    2: "./audio/51.mp3",
+    3: "./audio/53.mp3",
+    4: "./audio/54.mp3",
   };
 
   const handleStartClick = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
     setCurrentPage(2);
   };
 
   const handleNextClick = () => {
     if (currentPage === 2) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
       setCurrentPage(3);
     } else if (currentPage === 3) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
       setCurrentPage("levelUp");
     }
+  };
+
+  const handleAiVoiceToggle = () => {
+    setAiVoiceOn(!aiVoiceOn);
+
+    if (audioRef.current) {
+      if (!aiVoiceOn && audioSources[currentPage]) {
+        audioRef.current.src = audioSources[currentPage];
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    }
+  };
+
+  const handlePageChange = (newPage) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = ""; // Set audio source to empty string to stop sound
+    }
+    setCurrentPage(newPage);
+    setAiVoiceOn(false);
   };
 
   return (
     <div className="screen_shot_iphone">
       <button type="button" className="back_btn">
-        <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+        <img src="img/icon _arrow back ios_.png" alt="back_btn" />
       </button>
       <VoiceButton />
       <NavigationBar />
       {renderPage()}
+      <audio ref={audioRef}>
+        <source src="" type="audio/mpeg" />
+      </audio>
     </div>
   );
 
@@ -59,7 +82,7 @@ function App() {
             type="checkbox"
             id="switch"
             checked={aiVoiceOn}
-            onChange={() => setAiVoiceOn(!aiVoiceOn)}
+            onChange={handleAiVoiceToggle}
           />
           <label htmlFor="switch" className="switch_label">
             <span className="onf_btn"></span>
@@ -119,7 +142,6 @@ function App() {
   function renderPage() {
     switch (currentPage) {
       case 1:
-        playVoice("Hi");
         return (
           <div id="pages" className="page1">
             <img src="img/pngegg 1.png" alt="character" />
@@ -151,11 +173,11 @@ function App() {
       case 3:
         return (
           <div id="pages" className="page3">
-            <img className="exImg" src="img/faceTime.jpg" alt="facetime" />
             <p style={{ fontSize: "16px" }}>
-              먼저, 전화하고자 하는 상대에게 전화를 건 다음 화면에 보이는
+              먼저, 전화 앱을 켠 뒤, 영상통화 할 상대의 번호를 입력해주세요.
+              <br /> 그 다음
               <b style={{ fontSize: "17px", color: "#1f4ef5" }}>
-                Face time 버튼
+                영상통화 버튼
               </b>
               을 눌러주면 영상통화로 전환이 됩니다.
             </p>

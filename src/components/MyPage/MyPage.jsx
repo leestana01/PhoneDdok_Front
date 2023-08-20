@@ -6,11 +6,13 @@ import CharacterPhotoImage from "../../assets/images/MyPage_CharacterPhoto.png";
 
 import { styled } from "@mui/material/styles";
 
-import BackIcon from "../../assets/images/back_icon.png";
+import HomeIconImg from "../../assets/images/HomeIcon.png";
 
-import Search from "../../assets/images/search.png";
+import CategoryIconImg from "../../assets/images/CategoryIcon.png";
 
-import BottomMenuBar from "../../assets/images/bottom_menu_bar.png";
+import MypageIconImg from "../../assets/images/MypageIcon.png";
+
+import "../../App.css";
 
 const MyPage1 = styled("div")({
   backgroundColor: `rgba(255, 255, 255, 1)`,
@@ -156,7 +158,7 @@ const CharacterPhoto = styled("img")({
   top: `137px`,
 });
 
-const BackIcon1 = styled(BackIcon)({
+/*const BackIcon1 = styled(BackIcon)({
   width: `22px`,
   height: `22px`,
   position: `absolute`,
@@ -178,7 +180,7 @@ const BottomMenuBar1 = styled(BottomMenuBar)({
   position: `absolute`,
   left: `0px`,
   top: `1158px`,
-});
+});*/
 
 const RecentStudy5 = styled("div")({
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
@@ -668,6 +670,43 @@ const Q7 = styled("div")({
   top: `318px`,
 });
 
+const BottomMenuBar = styled("div")({
+  display: `flex`,
+  position: `fixed`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: 'space-between',
+  backgroundColor: '#e0b88a',
+  alignItems: `center`,
+  padding: `0px`,
+  boxSizing: `border-box`,
+  width: `390px`,
+  height: `67px`,
+  left: `4px`,
+  bottom: `0px`
+});
+
+const HomeIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+const CategoryIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+/*const CorrectionGrey = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});*/
+
+const MypageIcon = styled("img")({
+  height: `30px`,
+  width: `30px`,
+});
+
+
 function MyPage() {
   return (
     <MyPage1>
@@ -679,7 +718,6 @@ function MyPage() {
       </Level151>
       <Q>
         <QSpan1>{`홍길동`}</QSpan1>
-        <QSpan2>{` 님`}</QSpan2>
       </Q>
       <Line3></Line3>
       <Rectangle27></Rectangle27>
@@ -689,9 +727,6 @@ function MyPage() {
         loading="lazy"
         alt={"CharacterPhoto"}
       />
-      <BackIcon1 />
-      <Search1 />
-      <BottomMenuBar />
       <RecentStudy5>
         <Rectangle24></Rectangle24>
         <Q5>{`최근 공부 5`}</Q5>
@@ -734,8 +769,55 @@ function MyPage() {
         <Q12>{`즐겨찾기 1`}</Q12>
       </BookMark1>
       <Q7>{`즐겨찾기 항목`}</Q7>
+      <NavigationBar />
     </MyPage1>
   );
+  function NavigationBar() {
+    return (
+      <div className="navi_bar">
+        <div>
+          <button className="menuBtn" type="button">
+            <img
+              src="img/home.png"
+              alt="homeNoneSelect"
+              style={{ display: "none" }}
+            />
+            <img src="img/home1.png" alt="homeSelect" />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/menu.png" alt="menuNoneSelect" />
+            <img
+              src="img/menu1.png"
+              alt="menuSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/check.png" alt="checkNoneSelct" />
+            <img
+              src="img/check1.png"
+              alt="checkSelct"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+        <div>
+          <button className="menuBtn" type="button">
+            <img src="img/user.png" alt="userNoneSelect" />
+            <img
+              src="img/user1.png"
+              alt="userSelect"
+              style={{ display: "none" }}
+            />
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MyPage;

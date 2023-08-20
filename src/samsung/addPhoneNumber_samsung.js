@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="screen_shot_iphone">
       <button type="button" className="back_btn">
-        <img src="/img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+        <img src="/img/icon _arrow back ios_.png" alt="back_btn" />
       </button>
       <div className="voice_btn">
         <p>AI 보이스 켜짐</p>
@@ -146,7 +146,6 @@ function App() {
       )}
       {currentPage === 3 && (
         <div className="page3">
-          <img className="exImg" src="/img/callApp.jpg" alt="callApp" />
           <p>
             먼저 전화 앱으로 들어가봅시다. 하단 메뉴에서 연락처를 클릭합니다.
           </p>
@@ -164,7 +163,6 @@ function App() {
       )}
       {currentPage === 4 && (
         <div className="page4">
-          <img className="exImg2" src="/img/addNumber.jpg" alt="addNumber" />
           <p>
             여기서 <b style={{ color: "#007bff" }}>우측 상단의 + 버튼</b>을
             누르면
@@ -194,16 +192,15 @@ function App() {
             이전과 동일하게 연락처에 들어가서 삭제하고 싶은 사람의 이름을
             검색합니다.
           </p>
-          <img className="exImg2" src="/img/editImg.jpg" alt="eidtImg" />
           <p>
-            해당 사람의 이름을 클릭하고 우측 상단에{" "}
-            <b style={{ color: "#007bff" }}>편집</b>이라고 쓰여진 부분을
+            해당 사람의 이름을 누른 후에{" "}
+            <b style={{ color: "#007bff" }}>제일 우측에 나오는</b> 아이콘을
             클릭해줍니다.
           </p>
-          <img className="exImg2" src="/img/deleteImg.jpg" alt="deleteImg" />
+          <p>그 다음 우측 하단에 있는 더보기를 누른 후에 삭제를 눌러줍니다.</p>
           <p>
-            아래로 내리다 보면 있는 연락처 삭제 버튼을 클릭해주고 연락처 삭제
-            버튼을 한 번 더 클릭해주면 삭제가 완료 됩니다!
+            "이 연락처를 휴지통으로 이동할까요?"라는 안내가 나오면 <br />
+            "휴지통으로 이동"을 눌러주면 휴대폰 번호 삭제가 완료됩니다!
           </p>
           <div>
             <button
@@ -223,7 +220,7 @@ function App() {
           </div>
         </div>
       )}
-      {currentPage === 6 && (
+      {currentPage === 6 && ( //css 바꾸기
         <div className="practicePage1">
           <img src="/img/pngegg 1.png" alt="character" />
           <p>안녕하세요.</p>

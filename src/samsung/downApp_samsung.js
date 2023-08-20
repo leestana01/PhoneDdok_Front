@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="screen_shot_iphone">
       <button type="button" className="back_btn">
-        <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+        <img src="img/icon _arrow back ios_.png" alt="back_btn" />
       </button>
       <div className="voice_btn">
         <p>AI 보이스 켜짐</p>
@@ -132,7 +132,6 @@ function App() {
 
       {page === "page3" && (
         <div id="pages" className="page3">
-          <img src="" alt="kakaotalk" />
           <p style={{ fontSize: "16px" }}>
             앱의 종류는 정말 다양하지만 <br />그 중에서 많은 사람들이 사용하는
             "카카오톡"을 <br />한 번 설치 해봐요!
@@ -152,11 +151,11 @@ function App() {
 
       {page === "page4" && (
         <div id="pages" className="page4">
-          <img src="" alt="kakaotalk" />
-          <p>먼저, App store에 들어가줍니다.</p>
+          <p>먼저, Play 스토어에 들어가줍니다.</p>
           <p>
-            그 다음 검색 페이지로 들어가 <br />
-            검색창에 카카오톡을 검색해줄게요!
+            그 다음 상단의 검색창에
+            <br />
+            카카오톡을 검색해줄게요!
           </p>
           <div>
             <button
@@ -173,12 +172,9 @@ function App() {
 
       {page === "page5" && (
         <div id="pages" className="page5">
-          <img src="" alt="kakaotalk" />
           <p>제일 위쪽에 카카오톡이 보이죠?</p>
-          <p>옆에 있는 받기 버튼을 눌러줍니다.</p>
-          <p>
-            그 다음 App store 계정의 비밀번호를 입력해주면 앱 설치가 완료됩니다!
-          </p>
+          <p>옆에 있는 설치 버튼을 눌러줍니다.</p>
+          <p>설치 버튼을 누르고 기다리면 앱 설치가 완료됩니다.</p>
           <p>이제 다양한 앱을 설치하고 사용해봐요~!</p>
           <div>
             <button
@@ -199,7 +195,7 @@ function App() {
         </div>
       )}
 
-      {page === "practicePage1" && (
+      {page === "practicePage1" && ( //css 바꿔야함
         <div id="pages" className="practicePage1">
           <img src="img/pngegg 1.png" alt="character" />
           <p>안녕하세요.</p>

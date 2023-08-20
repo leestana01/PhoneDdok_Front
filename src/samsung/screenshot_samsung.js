@@ -1,20 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../App.css";
 
 function App() {
-  const [page, setPage] = useState(1);
-  const [aiVoiceOn, setAiVoiceOn] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [quizAnswered, setQuizAnswered] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
+  const [aiVoiceOn, setAiVoiceOn] = useState(false);
+  const audioRef = useRef(null);
+  const audioSources = {
+    1: "./audio/34.mp3",
+    2: "./audio/35.mp3",
+    3: "./audio/38.mp3",
+    4: "./audio/39.mp3",
+  };
 
   const handleStart = () => {
-    setPage(2);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
+    setCurrentPage(2);
   };
 
   const handleNextPage = () => {
-    if (page === 2) setPage(3);
-    else if (page === 3) setPage("quiz");
-    else if (page === "quiz") setPage("levelUp");
+    if (currentPage === 2) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(3);
+    } else if (currentPage === 3) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(4);
+    } else if (currentPage === 4) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+      setCurrentPage(5);
+    }
+  };
+
+  const handleAiVoiceToggle = () => {
+    setAiVoiceOn(!aiVoiceOn);
+
+    if (audioRef.current) {
+      if (!aiVoiceOn && audioSources[currentPage]) {
+        audioRef.current.src = audioSources[currentPage];
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    }
+  };
+
+  const handlePageChange = (newPage) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = ""; // Set audio source to empty string to stop sound
+    }
+    setCurrentPage(newPage);
+    setAiVoiceOn(false);
   };
 
   const handleQuizAnswer = (isCorrect) => {
@@ -24,21 +74,42 @@ function App() {
   const [isCorrect, setIsCorrect] = useState(false);
 
   return (
-    <div>
-      <div className="screen_shot_iphone">
-        <div className="back_btn">
-          <img src="img/🦆 icon _arrow back ios_.png" alt="back_btn" />
+    <div className="screen_shot_iphone">
+      <button type="button" className="back_btn">
+        <img src="img/icon _arrow back ios_.png" alt="back_btn" />
+      </button>
+      <VoiceButton />
+      <NavigationBar />
+      {renderPage()}
+      <audio ref={audioRef}>
+        <source src="" type="audio/mpeg" />
+      </audio>
+    </div>
+  );
+
+  function VoiceButton() {
+    return (
+      <div className="voice_btn">
+        <p>AI 보이스 {aiVoiceOn ? "켜짐" : "꺼짐"}</p>
+        <div className="wrapper">
+          <input
+            type="checkbox"
+            id="switch"
+            checked={aiVoiceOn}
+            onChange={handleAiVoiceToggle}
+          />
+          <label htmlFor="switch" className="switch_label">
+            <span className="onf_btn"></span>
+          </label>
         </div>
-        <div className="voice_btn">
-          <p>AI 보이스 켜짐</p>
-          <div className="wrapper">
-            <input type="checkbox" id="switch" />
-            <label htmlFor="switch" className="switch_label">
-              <span className="onf_btn"></span>
-            </label>
-          </div>
-        </div>
-        <div className="navi_bar">
+      </div>
+    );
+  }
+
+  function NavigationBar() {
+    return (
+      <div className="navi_bar">
+        <div>
           <button className="menuBtn" type="button">
             <img
               src="img/home.png"
@@ -47,6 +118,8 @@ function App() {
             />
             <img src="img/home1.png" alt="homeSelect" />
           </button>
+        </div>
+        <div>
           <button className="menuBtn" type="button">
             <img src="img/menu.png" alt="menuNoneSelect" />
             <img
@@ -55,6 +128,8 @@ function App() {
               style={{ display: "none" }}
             />
           </button>
+        </div>
+        <div>
           <button className="menuBtn" type="button">
             <img src="img/check.png" alt="checkNoneSelct" />
             <img
@@ -63,6 +138,8 @@ function App() {
               style={{ display: "none" }}
             />
           </button>
+        </div>
+        <div>
           <button className="menuBtn" type="button">
             <img src="img/user.png" alt="userNoneSelect" />
             <img
@@ -72,7 +149,14 @@ function App() {
             />
           </button>
         </div>
-        {page === 1 && (
+      </div>
+    );
+  }
+
+  function renderPage() {
+    switch (currentPage) {
+      case 1:
+        return (
           <div className="page1">
             <img src="img/pngegg 1.png" alt="character" />
             <p>안녕하세요.</p>
@@ -84,8 +168,10 @@ function App() {
               시작하기
             </button>
           </div>
-        )}
-        {page === 2 && (
+        );
+
+      case 2:
+        return (
           <div className="page2">
             <img className="exImg" src="img/jejuStay.png" alt="screenEx" />
             <p style={{ fontSize: "smaller" }}>
@@ -103,8 +189,10 @@ function App() {
               다음
             </button>
           </div>
-        )}
-        {page === 3 && (
+        );
+
+      case 3:
+        return (
           <div className="page3">
             <p style={{ fontSize: "smaller" }}>
               먼저, 캡쳐하고 싶은 화면으로 이동을 합니다!
@@ -124,8 +212,10 @@ function App() {
               다음
             </button>
           </div>
-        )}
-        {page === "quiz" && (
+        );
+
+      case 4:
+        return (
           <div className="quiz_page">
             <img src="img/quiz 1.png" alt="quiz" />
             <p
@@ -209,17 +299,18 @@ function App() {
               다음
             </button>
           </div>
-        )}
-        {page === "levelUp" && (
+        );
+
+      case 5:
+        return (
           <div className="level_up_page">
             <img src="img/pngegg 1.png" alt="" />
             <p>성공적으로 "화면 캡쳐하기"를 배웠어요!</p>
             <button className="endBtn">학습 종료하기</button>
           </div>
-        )}
-      </div>
-    </div>
-  );
+        );
+    }
+  }
 }
 
 export default App;
